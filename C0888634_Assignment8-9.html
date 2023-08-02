@@ -1,0 +1,117 @@
+<!-- 
+Name: Sarandeep Singh
+ID: C0888634
+Assignment 8-9 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        .error {
+            color: red;
+            display: block;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+            <span id="firstNameError" class="error"></span>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+            <span id="lastNameError" class="error"></span>
+        </div>
+        
+        <div>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" required>
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" required>
+            <label for="other">Other</label>
+            <span id="genderError" class="error"></span>
+        </div>
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+            <span id="dobError" class="error"></span>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" required>
+            <span id="confirmPasswordError" class="error"></span>
+        </div>
+        <div>
+            <input type="submit" value="Register">
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Reset error messages
+            const errorElements = document.getElementsByClassName("error");
+            for (let i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = "";
+            }
+
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const dob = document.getElementById("dob").value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Check if any fields are left blank
+            if (firstName === "") {
+                document.getElementById("firstNameError").textContent = "Please enter your first name.";
+                return;
+            }
+            if (lastName === "") {
+                document.getElementById("lastNameError").textContent = "Please enter your last name.";
+                return;
+            }
+            if (dob === "") {
+                document.getElementById("dobError").textContent = "Please enter your date of birth.";
+                return;
+            }
+            if (!gender) {
+                document.getElementById("genderError").textContent = "Please select your gender.";
+                return;
+            }
+            if (password === "") {
+                document.getElementById("passwordError").textContent = "Please enter a password.";
+                return;
+            }
+            if (confirmPassword === "") {
+                document.getElementById("confirmPasswordError").textContent = "Please confirm your password.";
+                return;
+            }
+
+            // Password Validation
+            if (password !== confirmPassword) {
+                document.getElementById("passwordError").textContent = "Passwords do not match.";
+                document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+                return;
+            }
+
+            // Alert message
+            alert("Registration successful!");
+        });
+    </script>
+</body>
+</html>

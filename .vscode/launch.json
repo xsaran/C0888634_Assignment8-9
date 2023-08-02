@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open C0888634_Assignment8-9.html",
+            "file": "d:\\Term 2\\Front End\\C0888634_Assignment8-9\\C0888634_Assignment8-9.html"
+        }
+    ]
+}
